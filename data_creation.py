@@ -10,7 +10,7 @@ from scipy.io import loadmat
 from skimage import transform, io, img_as_ubyte
 
 
-def read_data(im_size, rsp_size):
+def read_data(rsp_size, im_size):
     #speckles_patterns_val = np.zeros((300, 500, 700))
     #for i in range(1, 301):
     #    speckles_patterns = loadmat(('C://Users//spime//OneDrive//Υπολογιστής//train//symbol_Responses//Symbol_response_'+str(k)+'_'+str(i)+'.mat'))
@@ -24,14 +24,14 @@ def read_data(im_size, rsp_size):
             imageio.imwrite('speckle.jpg',speckle_val) 
             image = imageio.imread('speckle.jpg')
             # resize image
-            resized = cv2.resize(image, dim_img, interpolation = cv2.INTER_CUBIC)
+            resized = cv2.resize(image, dim_rsp, interpolation = cv2.INTER_CUBIC)
             #resized = imresize(image, dim, interp='bilinear')
             imageio.imwrite('C://Users//spime//OneDrive//Υπολογιστής//train//symbol_Responses_resized//'+str(k)+'//symbol_'+str(k)+'_'+str(i)+'.jpg', resized)
 
         for i in range(1, 259):
             symbol = imageio.imread('C://Users//spime//OneDrive//Υπολογιστής//train//'+str(k)+'//symbol_'+str(i)+'.jpg')
             # resize image
-            resized = cv2.resize(symbol, dim_rsp, interpolation = cv2.INTER_CUBIC)
+            resized = cv2.resize(symbol, dim_img, interpolation = cv2.INTER_CUBIC)
             #resized = transform.resize(symbol, dim, mode='symmetric', preserve_range=True)
             imageio.imsave('C://Users//spime//OneDrive//Υπολογιστής//train//'+str(k)+'_resized//symbol_'+str(k)+'_'+str(i)+'.jpg', resized)
 
