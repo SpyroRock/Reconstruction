@@ -3,7 +3,7 @@ from keras.layers import Input
 import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
-#from tensorflow import multi_gpu_model
+# from tensorflow import multi_gpu_model
 import keras
 from keras.models import Sequential, Model, model_from_json
 from keras.layers import Dense, Activation, Dropout, Flatten, Reshape
