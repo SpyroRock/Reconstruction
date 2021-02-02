@@ -1,4 +1,5 @@
 from model_structure import create_model
+from model_structure_128x32 import create_model_128_32
 from keras.layers import Input
 import numpy as np
 import matplotlib.pyplot as plt
@@ -23,10 +24,15 @@ img_height_test = 32
 img_width_test = 32
 
 speckle_data = load('speckle_array_case0.npy')
+#speckle_data = tf.constant(speckle_data, dtype=tf.uint8)
+print(tf.constant(speckle_data))
 print(speckle_data.shape)
-#speckle_labels = load('speckle_labels.npy')
+
 speckle_labels = load('symbol_array_case0.npy')
+#speckle_labels = tf.constant(speckle_labels, dtype=tf.uint8)
+print(tf.constant(speckle_labels))
 print(speckle_labels.shape)
+
 #plt.imshow(speckle_labels[2], cmap='gray')
 #plt.show()
 #dictionary = {speckle_labels_n: speckle_labels_mn_n for speckle_labels_n, speckle_labels_mn_n in zip(speckle_labels, speckle_labels_mn)}
@@ -43,7 +49,7 @@ input_shape_test = (img_height_test, img_width_test, 1)
 
 img_input = Input(shape=input_shape)
 
-reconstruction = create_model(img_input, input_shape, input_shape_test)
+reconstruction = create_model_128_32(img_input, input_shape, input_shape_test)
 print(reconstruction)
 
 reconstruction.summary()
