@@ -1,5 +1,5 @@
 from model_structure import create_model
-from model_structure_128x32 import create_model_128_32
+from model_structure_256x64 import create_model_256_64
 from keras.layers import Input
 import numpy as np
 import matplotlib.pyplot as plt
@@ -17,11 +17,11 @@ from sklearn.model_selection import train_test_split
 # from sklearn.metrics import confusion_matrix
 import pickle
 
-img_height = 128
-img_width = 128
+img_height = 256
+img_width = 256
 
-img_height_test = 32
-img_width_test = 32
+img_height_test = 64
+img_width_test = 64
 
 speckle_data = load('speckle_array_case0.npy')
 #speckle_data = tf.constant(speckle_data, dtype=tf.uint8)
@@ -49,7 +49,7 @@ input_shape_test = (img_height_test, img_width_test, 1)
 
 img_input = Input(shape=input_shape)
 
-reconstruction = create_model_128_32(img_input, input_shape, input_shape_test)
+reconstruction = create_model_256_64(img_input, input_shape, input_shape_test)
 print(reconstruction)
 
 reconstruction.summary()
