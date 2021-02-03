@@ -53,11 +53,11 @@ def create_the_dataset(rsp_size, im_size):
     # speckle_array = speckle_array.astype(int)
     # symbol_array = symbol_array.astype(int)
 
-    #speckle_array = np.array(speckle_array, dtype=np.float32)
-    #symbol_array = np.array(symbol_array, dtype=np.float32)
+    speckle_array = np.array(speckle_array, dtype=np.float32)
+    symbol_array = np.array(symbol_array, dtype=np.float32)
 
-    speckle_array = np.array(speckle_array, dtype=np.uint8)
-    symbol_array = np.array(symbol_array, dtype=np.uint8)
+    #speckle_array = np.array(speckle_array, dtype=np.uint8)
+    #symbol_array = np.array(symbol_array, dtype=np.uint8)
     
     print(speckle_array.shape)
     print(symbol_array.shape)
