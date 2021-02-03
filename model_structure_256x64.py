@@ -10,12 +10,12 @@ from tensorflow.keras.callbacks import TensorBoard
 
 def create_model_256_64(img_input, input_shape, input_shape_test):
     print(input_shape[0])
-    power = find_power(input_shape[0])
-    nb_filter = 2**(power-1)
-    print(power)
-    print(nb_filter)
+    #power = find_power(input_shape[0])
+    #nb_filter = 2**(power-1)
+    #print(power)
+    #print(nb_filter)
     # x = Sequential()(img_input)
-    x = Conv2D(nb_filter, 1, activation = 'relu', input_shape=input_shape)(img_input)
+    x = Conv2D(64, 1, activation = 'relu', input_shape=input_shape)(img_input)
     x = MaxPooling2D(pool_size = (2,2))(x)
     x = Dropout(0.25)(x)
     x = Conv2D(32, 1, activation = 'relu')(x)
