@@ -47,6 +47,10 @@ y_train = y_train.reshape(-1, img_height_test, img_width_test, 1)
 y_test = y_test.reshape(-1, img_height_test, img_width_test, 1)
 input_shape_test = (img_height_test, img_width_test, 1)
 
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+session = tf.Session(config=config)
+
 img_input = Input(shape=input_shape)
 
 reconstruction = create_model_256_64(img_input, input_shape, input_shape_test)
